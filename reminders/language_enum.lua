@@ -99,9 +99,9 @@ function lang_enum:from_room_type(room_type, is_boss_challenge)
     end
     -- else
 
-    local value = ROOM_TYPE2LANG_ENUM[room_type]
-    assert(value ~= nil, "room type association not found of room type: " .. room_type)
-    return value
+    -- may be nil for room types without a translation (e.g. ROOM_GREED_EXIT, ROOM_BLACK_MARKET),
+    -- callers are expected to fall back to LNOTIFY_TEXT_ROOM_NIL
+    return ROOM_TYPE2LANG_ENUM[room_type]
 end
 
 return lang_enum

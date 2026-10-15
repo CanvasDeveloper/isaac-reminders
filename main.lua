@@ -350,6 +350,11 @@ function rems:update_notify_rooms()
             should_notify = false
         end
 
+        -- greed mode exit room is not a special room you can "miss"
+        if room_type == RoomType.ROOM_GREED_EXIT then
+            should_notify = false
+        end
+
         if should_notify then
             local is_mirror_room = iutils.is_room_desc_mirror_world(game, desc)
 
@@ -466,7 +471,8 @@ function rems:render_notify(alpha)
         local line_height_offset = line_height * (room_idx + 1)
 
         -- fall back to displaying room type
-        local rname = lang:get(LE:from_room_type(room.type, is_boss_challenge)) or
+        local rname_key = LE:from_room_type(room.type, is_boss_challenge)
+        local rname = (rname_key ~= nil and lang:get(rname_key)) or
             (string.format(lang:get(LE.LNOTIFY_TEXT_ROOM_NIL), room.type))
 
         local rlabel = rname
