@@ -154,6 +154,8 @@ local ROOMTYPE_TO_ICON = {
     [RoomType.ROOM_ANGEL]       = "IconAngelRoom",
 
     [RoomType.ROOM_BOSS]        = "IconBoss",
+
+    [RoomType.ROOM_GREED_EXIT]  = "IconLadder",
 }
 
 function rems:roomtype_to_icon_name(room_type, is_boss_challenge)
@@ -347,11 +349,6 @@ function rems:update_notify_rooms()
         -- dont ultra secret when we dont have these collectibles
         if self:get_config().notify_info_conditional_ultra_secret and
             (room_type == RoomType.ROOM_ULTRASECRET and can_open_ultra_secret == false) then
-            should_notify = false
-        end
-
-        -- greed mode exit room is not a special room you can "miss"
-        if room_type == RoomType.ROOM_GREED_EXIT then
             should_notify = false
         end
 
