@@ -101,7 +101,7 @@ function lang_enum:from_room_type(room_type, is_boss_challenge)
     end
     -- else
 
-    -- may be nil for room types without a translation (e.g. ROOM_GREED_EXIT, ROOM_BLACK_MARKET),
+    -- may be nil for room types without a translation (e.g. ROOM_BLACK_MARKET, ROOM_TELEPORTER),
     -- callers are expected to fall back to LNOTIFY_TEXT_ROOM_NIL
     return ROOM_TYPE2LANG_ENUM[room_type]
 end
