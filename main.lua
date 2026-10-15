@@ -1143,7 +1143,6 @@ function rems:render_secret_room_placeholders()
         [RoomType.ROOM_DEVIL]           = true,
         [RoomType.ROOM_ANGEL]           = true,
         [RoomType.ROOM_BLACK_MARKET]    = true,
-        [RoomType.ROOM_GREED_EXIT]      = true,
         [RoomType.ROOM_SECRET_EXIT]     = true,
         [RoomType.ROOM_TELEPORTER_EXIT] = true,
         [RoomType.ROOM_TELEPORTER]      = true,
